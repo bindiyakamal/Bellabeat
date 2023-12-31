@@ -246,16 +246,35 @@ From the above analysis there is a correlation between total number of steps tak
 We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users, bellabeat should consider having a section where users can customize their sleep schedule to ensure consistency
 
 
-# Sleep Duration and Sedentary Time
+# Sleep and Inactive Time
 
+![pic](sleep_and_inactive_time.png)
 
--0.599394 From looking at the graph above, we can see there is a negative correlation between SedentaryMinutes and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. Now I want to look at whether the day of the week affects our activity levels and sleep.
-
-
-
+```
+ cor(merged_data$TotalMinutesAsleep,merged_data$SedentaryMinutes)
+```
+ -0.6010731
  
+ From looking at the graph above, we can see there is a negative correlation between total inactive time and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. Now I will look at whether the each day of the week affects our activity levels and sleep and also find number of hourly steps a participant take throughout the day.
+```
+merged_data <- mutate(merged_data, day = wday(SleepDay, label = TRUE))
+summarized_activity_sleep <- merged_data %>% 
+  group_by(day) %>% 
+  summarise(AvgDailySteps = mean(TotalSteps),
+            AvgAsleepMinutes = mean(TotalMinutesAsleep),
+            AvgAwakeTimeInBed = mean(TotalTimeInBed), 
+            AvgSedentaryMinutes = mean(SedentaryMinutes),
+            AvgLightlyActiveMinutes = mean(LightlyActiveMinutes),
+            AvgFairlyActiveMinutes = mean(FairlyActiveMinutes),
+            AvgVeryActiveMinutes = mean(VeryActiveMinutes), 
+            AvgCalories = mean(Calories))
+head(summarized_activity_sleep)
 
-# hourly steps throughout the day
+ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailySteps)) +
+  geom_col(fill = "Blue") + labs(title = "Daily Step Count")
+```
+
+ # hourly steps throughout the day
 
 We can see that users are more active between 8am and 7pm. Walking more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
 
