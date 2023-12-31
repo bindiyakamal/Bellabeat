@@ -235,16 +235,38 @@ glimpse(merged_data)
 ```
 
 # Total Steps vs Calories
+```
+ggplot(data = activity, aes(x = TotalSteps, y = Calories)) + geom_point(aes(color = "Orange")) + geom_smooth() + labs(title = "Total Steps vs. Calories")
 
+cor(activity$TotalSteps,activity$Calories)
+```
 ![pic](total_steps_vs_calories.png)
+
 From the above analysis there is a correlation between total number of steps taken and calories burned. The more steps each participant takes, the more calories they burn.
 
 
 # Total time asleep vs Total time in bed
 
-![pic](total_time_asleep_vs_time_in_bed.png)
-We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users, bellabeat should consider having a section where users can customize their sleep schedule to ensure consistency
+```
+ggplot(data = sleep, aes(x = TotalMinutesAsleep, y = TotalTimeInBed)) + geom_point(aes(color = "Orange")) + labs(title = "Total time asleep vs Total time in bed")
 
+cor(sleep$TotalMinutesAsleep,sleep$TotalTimeInBed)
+```
+![pic](total_time_asleep_vs_time_in_bed.png)
+
+We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users and ensure consistency, bellabeat should consider having a section where users can customize their sleep schedule .
+
+# Total Minutes Asleep vs Total Steps
+```
+ggplot(data = merged_data , aes(x = TotalSteps , y = TotalMinutesAsleep)) + geom_point() + labs(title = "Total Steps vs TotalMinutesAsleep") + geom_jitter() +
+  geom_smooth(color = "red")
+
+cor(merged_data$TotalMinutesAsleep,merged_data$TotalSteps)
+```
+![pic](total_time_asleep_vs_time_in_bed.png)
+
+-0.1903439
+There is no correlation between  activity  based on total steps and the amount of minutes users sleep a day.
 
 # Sleep and Inactive Time
 
@@ -275,6 +297,15 @@ ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailyStep
 ```
 ![pic](daily_steps.png)
 From this bar garph , it is clear that most of the participants are active in saturdays and less in sundays.
+
+# Total Steps vs Total Minutes Asleep
+```
+ggplot(data = merged_data , aes(x = TotalSteps , y = TotalMinutesAsleep)) + geom_point() + labs(title = "Total Steps vs TotalMinutesAsleep") + geom_jitter() +
+  geom_smooth(color = "red")
+cor(merged_data$TotalMinutesAsleep,merged_data$TotalSteps)
+```
+There is no correlation between daily activity level based on steps and the amount of minutes users sleep a day.
+
  # hourly steps throughout the day
 
  ```
@@ -284,7 +315,8 @@ steps %>% group_by(time) %>% summarize(average_steps = mean(StepTotal)) %>%
   scale_fill_gradient(low = "blue", high = "orange")+
   theme(axis.text.x = element_text(angle = 90))
 ```
-![pic](
+![pic](Hourly_steps_throughout_the_day.png)
+ From this chart we can say that users are most active from 8am to 7pm.User walks more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
 
-We can see that users are more active between 8am and 7pm. Walking more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
+
 
