@@ -330,5 +330,17 @@ steps %>% group_by(time) %>% summarize(average_steps = mean(StepTotal)) %>%
 
  From this chart we can say that users are most active from 8am to 7pm.User walks more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
 
+# Act Phase
+
+**Conclusion:**
+
+Knowing that our main target are young and adult women I encourage to continue finding trends to be able to create a marketing stragety focused on them.After analysising and  results we get , I have come up with recommendations for Bellabeat to develop their marketing strategies. 
+
+* The average number of users who walk a few steps per day is 7,638. We can encourage customers to reach at least 8,000 steps daily by sending them alarms or daily notifications if they haven't reached the target, and Bellabeat can suggest their users take at least 8,000 steps per day by explaining the benefits that come with it, posting motivational and inspirational posts, or giving pop-up messages for their users as a push.
+  
+* Based on our results we can see that users sleep less than 8 hours a day. They could set up a desired time to go to sleep and receive a notification minutes before, going to sleep. Also offer helpfull resources to help customers sleep for example like  podcasts with relaxing music, sleep tips.
+  
+* Some people can get unmotivated by notifications, so for this matter, we could give them daily coupons or offers by conducting small games for a limited period of time. The game would consist of reaching different levels based on the number of steps walked every day. For each level, the user would win a certain amount of stars or coins that would be made available for merchandise or discounts on other Bellabeat products. 
+* 
 
 
