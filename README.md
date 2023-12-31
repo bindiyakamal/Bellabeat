@@ -242,7 +242,7 @@ From the above analysis there is a correlation between total number of steps tak
 
 # Total time asleep vs Total time in bed
 
-![pic](total_steps_vs_calories.png)
+![pic](total_time_asleep_vs_time_in_bed.png)
 We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users, bellabeat should consider having a section where users can customize their sleep schedule to ensure consistency
 
 
