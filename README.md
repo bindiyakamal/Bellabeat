@@ -263,7 +263,7 @@ ggplot(data = merged_data , aes(x = TotalSteps , y = TotalMinutesAsleep)) + geom
 
 cor(merged_data$TotalMinutesAsleep,merged_data$TotalSteps)
 ```
-![pic](total_time_asleep_vs_time_in_bed.png)
+![pic](total_minutes_asleep_vs_total_steps.png)
 
 -0.1903439
 There is no correlation between  activity  based on total steps and the amount of minutes users sleep a day.
@@ -273,11 +273,17 @@ There is no correlation between  activity  based on total steps and the amount o
 ![pic](sleep_and_inactive_time.png)
 
 ```
- cor(merged_data$TotalMinutesAsleep,merged_data$SedentaryMinutes)
+ggplot(data = merged_data, mapping = aes(x = SedentaryMinutes, y = TotalMinutesAsleep)) +
+  geom_point(aes(color = "pink") ) + labs(title= "Sleep Duration and Sedentary Time") 
+
+cor(merged_data$TotalMinutesAsleep,merged_data$SedentaryMinutes)
+
 ```
  -0.6010731
  
  From looking at the graph above, we can see there is a negative correlation between total inactive time and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. Now I will look at whether the each day of the week affects our activity levels and sleep and also find number of hourly steps a participant take throughout the day.
+
+ # Steps taken in each weekdays
 ```
 merged_data <- mutate(merged_data, day = wday(SleepDay, label = TRUE))
 summarized_activity_sleep <- merged_data %>% 
@@ -292,8 +298,8 @@ summarized_activity_sleep <- merged_data %>%
             AvgCalories = mean(Calories))
 head(summarized_activity_sleep)
 
-ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailySteps)) +
-  geom_col(fill = "Blue") + labs(title = "Daily Step Count")
+ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailySteps)) + geom_col(fill = "Blue") + labs(title = "Daily Step Count")
+
 ```
 ![pic](daily_steps.png)
 From this bar garph , it is clear that most of the participants are active in saturdays and less in sundays.
@@ -316,6 +322,7 @@ steps %>% group_by(time) %>% summarize(average_steps = mean(StepTotal)) %>%
   theme(axis.text.x = element_text(angle = 90))
 ```
 ![pic](Hourly_steps_throughout_the_day.png)
+
  From this chart we can say that users are most active from 8am to 7pm.User walks more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
 
 
