@@ -236,13 +236,13 @@ glimpse(merged_data)
 
 # Total Steps vs Calories
 
-![pic](my_plot.png)
+![pic](total_steps_vs_calories.png)
 From the above analysis there is a correlation between total number of steps taken and calories burned. The more steps each participant takes, the more calories they burn.
 
 
 # Total time asleep vs Total time in bed
 
-
+![pic](total_steps_vs_calories.png)
 We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users, bellabeat should consider having a section where users can customize their sleep schedule to ensure consistency
 
 
