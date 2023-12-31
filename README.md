@@ -43,7 +43,7 @@ This Kaggle data set contains personal fitness tracker from thirty fitbit users.
 
 Due to the limitation of size and not having any demographic information we could encounter a sampling bias. The problem we encounter is that the dataset is not current,meaning that user habits may have changed over the years.
 
-## Installed and Loaded Packages
+### Installed and Loaded Packages
 ```
 # installing packages
 
@@ -234,7 +234,7 @@ merged_data <- merge(sleep, activity, by=c ('Id', 'date'))
 glimpse(merged_data)
 ```
 
-# Total Steps vs Calories
+### Total Steps vs Calories
 ```
 ggplot(data = activity, aes(x = TotalSteps, y = Calories)) + geom_point(aes(color = "Orange")) + geom_smooth() + labs(title = "Total Steps vs. Calories")
 
@@ -245,7 +245,7 @@ cor(activity$TotalSteps,activity$Calories)
 From the above analysis there is a correlation between total number of steps taken and calories burned. The more steps each participant takes, the more calories they burn.
 
 
-# Total time asleep vs Total time in bed
+### Total time asleep vs Total time in bed
 
 ```
 ggplot(data = sleep, aes(x = TotalMinutesAsleep, y = TotalTimeInBed)) + geom_point(aes(color = "Orange")) + labs(title = "Total time asleep vs Total time in bed")
@@ -256,7 +256,7 @@ cor(sleep$TotalMinutesAsleep,sleep$TotalTimeInBed)
 
 We can see a positive correlation between total time asleep vs total time in bed. To improve sleep quality for its users and ensure consistency, bellabeat should consider having a section where users can customize their sleep schedule .
 
-# Total Minutes Asleep vs Total Steps
+### Total Minutes Asleep vs Total Steps
 ```
 ggplot(data = merged_data , aes(x = TotalSteps , y = TotalMinutesAsleep)) + geom_point() + labs(title = "Total Steps vs TotalMinutesAsleep") + geom_jitter() +
   geom_smooth(color = "red")
@@ -266,9 +266,10 @@ cor(merged_data$TotalMinutesAsleep,merged_data$TotalSteps)
 ![pic](total_minutes_asleep_vs_total_steps.png)
 
 -0.1903439
+
 There is no correlation between  activity  based on total steps and the amount of minutes users sleep a day.
 
-# Sleep and Inactive Time
+### Sleep and Inactive Time
 
 ![pic](sleep_and_inactive_time.png)
 
@@ -283,7 +284,8 @@ cor(merged_data$TotalMinutesAsleep,merged_data$SedentaryMinutes)
  
  From looking at the graph above, we can see there is a negative correlation between total inactive time and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. Now I will look at whether the each day of the week affects our activity levels and sleep and also find number of hourly steps a participant take throughout the day.
 
- # Steps taken in each weekdays
+ ### Steps taken in each day
+ 
 ```
 merged_data <- mutate(merged_data, day = wday(SleepDay, label = TRUE))
 summarized_activity_sleep <- merged_data %>% 
@@ -301,18 +303,21 @@ head(summarized_activity_sleep)
 ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailySteps)) + geom_col(fill = "Blue") + labs(title = "Daily Step Count")
 
 ```
+
 ![pic](daily_steps.png)
+
 From this bar garph , it is clear that most of the participants are active in saturdays and less in sundays.
 
-# Total Steps vs Total Minutes Asleep
+### Total Steps vs Total Minutes Asleep
 ```
 ggplot(data = merged_data , aes(x = TotalSteps , y = TotalMinutesAsleep)) + geom_point() + labs(title = "Total Steps vs TotalMinutesAsleep") + geom_jitter() +
   geom_smooth(color = "red")
 cor(merged_data$TotalMinutesAsleep,merged_data$TotalSteps)
 ```
+
 There is no correlation between daily activity level based on steps and the amount of minutes users sleep a day.
 
- # hourly steps throughout the day
+ ### hourly steps throughout the day
 
  ```
 steps %>% group_by(time) %>% summarize(average_steps = mean(StepTotal)) %>%
