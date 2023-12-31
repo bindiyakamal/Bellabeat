@@ -236,7 +236,7 @@ glimpse(merged_data)
 
 # Total Steps vs Calories
 
-
+![pic](my_plot.png)
 From the above analysis there is a correlation between total number of steps taken and calories burned. The more steps each participant takes, the more calories they burn.
 
 
