@@ -304,7 +304,7 @@ ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailyStep
 
 ```
 
-![pic](daily_steps.png)
+![pic](
 
 From this bar garph , it is clear that most of the participants are active in saturdays and less in sundays.
 
