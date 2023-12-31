@@ -273,8 +273,18 @@ head(summarized_activity_sleep)
 ggplot(data = summarized_activity_sleep, mapping = aes(x = day, y = AvgDailySteps)) +
   geom_col(fill = "Blue") + labs(title = "Daily Step Count")
 ```
-
+![pic](daily_steps.png)
+From this bar garph , it is clear that most of the participants are active in saturdays and less in sundays.
  # hourly steps throughout the day
+
+ ```
+steps %>% group_by(time) %>% summarize(average_steps = mean(StepTotal)) %>%
+  ggplot() + geom_col(mapping = aes(x=time, y = average_steps, fill = average_steps)) + 
+  labs(title = "Hourly steps throughout the day", x="", y="") + 
+  scale_fill_gradient(low = "blue", high = "orange")+
+  theme(axis.text.x = element_text(angle = 90))
+```
+![pic](
 
 We can see that users are more active between 8am and 7pm. Walking more steps during lunch time from 12pm to 2pm and evenings from 5pm and 7pm.
 
