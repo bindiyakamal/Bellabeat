@@ -79,7 +79,6 @@ The following datasets are imported.Due to the the small sample we won't conside
 ```
 activity <- read.csv("C:/Fitness/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
 calories <- read.csv("C:/Fitness/Fitabase Data 4.12.16-5.12.16/hourlyCalories_merged.csv")
-intensities <- read.csv("C:/Fitness/Fitabase Data 4.12.16-5.12.16/hourlyIntensities_merged.csv")
 sleep <- read.csv("C:/Fitness/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
 steps <- read.csv("C:/Fitness/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
 ```
@@ -217,13 +216,14 @@ steps %>%
 **Observations from the above Summaries:**
 
 * Sedetary minutes on average is 16.5 hours.
-* The average participant burns 97 calories per hour
+* The average participant burns 97 calories per hour.
 * The majority of the avaerage participants are lightly active for 3 hours.
 * The average number of steps per day is 7638.According to Centers for Disease Control and Prevention(CDC),recommends people to take 10,000 steps daily for healthy adults to achieve health benefits.
 * an average calories a participant burn per hour is 97.3.
 * an average participant sleep for 7 hours.
 
 # Share Phase
+
 From the above observations, let the analysis be done in depth with the help of visualization for easy understanding. Before visualization, I will merge two of the datasets. I have joined activity and sleep datasets using an inner join on columns id and date.
 
 
@@ -282,7 +282,7 @@ cor(merged_data$TotalMinutesAsleep,merged_data$SedentaryMinutes)
 ```
  -0.6010731
  
- From looking at the graph above, we can see there is a negative correlation between total inactive time and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. Now I will look at whether the each day of the week affects our activity levels and sleep and also find number of hourly steps a participant take throughout the day.
+ From looking at the graph above, we can see there is a negative correlation between total inactive time and TotalMinutesAsleep. This means that the less active a participant is, the less sleep they tend to get. 
 
  ### Steps taken in each day
  
@@ -349,4 +349,4 @@ Knowing that our main target is young and adult women, I continue to find trends
 * Some people can get unmotivated by notifications, so for this matter, we could give them daily coupons or offers by conducting small games for a limited period of time. The game would consist of reaching different levels based on the number of steps walked every day. For each level, the user would win a certain amount of stars or coins that would be made available for merchandise or discounts on other Bellabeat products.
 
   
-
+Thank You !
